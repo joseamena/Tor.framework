@@ -1,6 +1,6 @@
 [submodule "Tor/xz"]
 	path = Tor/xz
-	url = https://git.tukaani.org/xz.git
+	url = https://github.com/tukaani-project/xz
 [submodule "Tor/openssl"]
 	path = Tor/openssl
 	url = https://github.com/openssl/openssl.git
