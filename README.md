@@ -14,7 +14,7 @@ Currently, the framework compiles in the following versions of `tor`, `libevent`
 | libevent  | 2.1.12   |
 | OpenSSL   | 3.3.1    |
 | liblzma   | 5.6.2    |
-| Onionmasq | 0.6.1    |
+| Onionmasq | 0.6.2    |
 
 
 ## Example
