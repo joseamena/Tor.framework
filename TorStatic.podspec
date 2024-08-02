@@ -56,7 +56,6 @@ ENDSCRIPT
 
     s.user_target_xcconfig = {
       'HEADER_SEARCH_PATHS' => '$(inherited) "${PODS_ROOT}/Headers/Public"',
-      'OTHER_LDFLAGS' => '$(inherited) -l"z" -l"lzma" -l"crypto" -l"ssl" -l"event_core" -l"event_extra" -l"event_pthreads" -l"event" -l"tor"'
     }
 
     s.script_phases = [

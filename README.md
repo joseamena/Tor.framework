@@ -182,8 +182,7 @@ or
 pod 'Tor/GeoIP', :podspec => 'https://raw.githubusercontent.com/iCepa/Tor.framework/pure_pod/TorStatic.podspec'
 ```
 
-The subspec will create a "GeoIP" bundle and install a run script phase which 
-will download the appropriate GeoIP files.
+The subspec will create a "GeoIP" bundle with the appropriate GeoIP files.
 
 To use it with Tor, add this to your configuration:
 
@@ -192,6 +191,46 @@ TORConfiguration *configuration = [TORConfiguration new];
 configuration.geoipFile = NSBundle.geoIpBundle.geoipFile;
 configuration.geoip6File = NSBundle.geoIpBundle.geoip6File;
 ```
+
+### Experimental Arti and Onionmasq podspec
+
+Since I while, this project also contains a podspec, which uses Arti (A Rust Tor Implementation)
+or Onionmasq (Arti with a wrapper taking in IP packets, useful for VPN-style apps.)
+
+```ruby
+pod 'Tor/Arti', :podspec => 'https://raw.githubusercontent.com/iCepa/Tor.framework/pure_pod/Arti.podspec'
+```
+
+or
+
+```ruby
+pod 'Tor/Onionmasq', :podspec => 'https://raw.githubusercontent.com/iCepa/Tor.framework/pure_pod/Arti.podspec'
+```
+
+There's currently a known issue: Onionmasq won't compile if you build for iOS or an iOS simulator right away,
+since some Rust dependencies use custom build scripts which need to get compiled for MacOS, but will try
+to use the wrong platform (iOS) in this case. 
+This can be fixed, if you compile for your machine first:
+
+```sh
+cd Pods/Tor/Tor/onionmasq
+make macos-debug-aarch64-apple-darwin # If you run on Apple Silicon
+make macos-debug-x86_64-apple-darwin # If you're still on Intel
+```
+
+Then, the Rust dependency build scripts will be compiled correctly and the 
+Xcode build will run correctly.
+
+You can also precompile your debug and release targets on the command line, if you like:
+
+```sh
+make macos-release-universal-macos # Release build for MacOS as universal binary
+make ios-release-aarch64-apple-ios # Release build for iOS
+make ios-debug-aarch64-apple-ios # Debug build for iOS device
+make ios-debug-aarch64-apple-ios-sim # Debug build for iOS simulator running on Apple Silicon
+make ios-debug-x86_64-apple-ios # Debug build for iOS simulator running on Intel
+```
+
 
 ## Further reading
 
