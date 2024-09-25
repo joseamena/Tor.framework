@@ -23,8 +23,8 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
-- iOS 9.0 or later
-- MacOS 12.0 or later
+- iOS 12.0 or later
+- MacOS 10.13 or later
 - Xcode 13.0 or later
 - `autoconf`,  `automake`, `libtool` and  `gettext` in your `PATH`
 
