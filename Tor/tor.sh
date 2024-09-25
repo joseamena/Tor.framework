@@ -36,8 +36,6 @@ touch "${PSEUDO_SYS_INCLUDE_DIR}/sys/ptrace.h"
 
 if [[ "${BITCODE_GENERATION_MODE}" = "bitcode" ]]; then
     BITCODE_CFLAGS="-fembed-bitcode"
-elif [[ "${BITCODE_GENERATION_MODE}" = "marker" ]]; then
-    BITCODE_CFLAGS="-fembed-bitcode-marker"
 fi
 
 if [[ "${CONFIGURATION}" = "Debug" ]]; then
